@@ -1,21 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7h5ho8jg2fud"]
+[gd_scene load_steps=3 format=3 uid="uid://b7h5ho8jg2fud"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ymwud"]
-[ext_resource type="Texture2D" uid="uid://cwpta6padmepi" path="res://assets/textures/player/Fall (32x32).png" id="2_lacir"]
-[ext_resource type="Texture2D" uid="uid://clpr8oistsajg" path="res://assets/textures/player/Jump (32x32).png" id="3_n5o8f"]
-[ext_resource type="Texture2D" uid="uid://b4mt3a37lpday" path="res://assets/textures/player/Idle (32x32).png" id="4_m28bl"]
+[ext_resource type="PackedScene" uid="uid://2bthkjhl7w0g" path="res://scenes/player.tscn" id="2_q0tjt"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ymwud")
 
-[node name="Fall(32x32)" type="Sprite2D" parent="."]
-position = Vector2(45, 63)
-texture = ExtResource("2_lacir")
-
-[node name="Jump(32x32)" type="Sprite2D" parent="."]
-position = Vector2(306, 78)
-texture = ExtResource("3_n5o8f")
-
-[node name="Idle(32x32)" type="Sprite2D" parent="."]
-position = Vector2(202, 157)
-texture = ExtResource("4_m28bl")
+[node name="Player" parent="." instance=ExtResource("2_q0tjt")]
+position = Vector2(221, 130)
