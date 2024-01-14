@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7h5ho8jg2fud"]
+[gd_scene load_steps=9 format=3 uid="uid://b7h5ho8jg2fud"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ymwud"]
 [ext_resource type="PackedScene" uid="uid://2bthkjhl7w0g" path="res://scenes/player.tscn" id="2_q0tjt"]
 [ext_resource type="Texture2D" uid="uid://bgw445pfymkjb" path="res://icon.svg" id="3_26ulb"]
 [ext_resource type="PackedScene" uid="uid://dv0o63h2nehu6" path="res://scenes/jump_pad.tscn" id="4_hv8jl"]
+[ext_resource type="PackedScene" uid="uid://bd3007fux0rtw" path="res://scenes/saw.tscn" id="5_a5qfx"]
+[ext_resource type="PackedScene" uid="uid://b3tfsjcjcjd0y" path="res://scenes/spike_ball.tscn" id="6_avqk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kx2em"]
 size = Vector2(447, 20)
@@ -31,7 +33,7 @@ position = Vector2(213.5, 0)
 shape = SubResource("RectangleShape2D_kx2em")
 
 [node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(255, 169)
+position = Vector2(369, 163)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground2"]
 modulate = Color(0, 0, 0, 1)
@@ -54,11 +56,23 @@ shape = SubResource("RectangleShape2D_cuiq3")
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(124, 143)
 
-[node name="JumpPad" parent="." instance=ExtResource("4_hv8jl")]
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_hv8jl")]
 position = Vector2(84, 207)
 
-[node name="JumpPad2" parent="." instance=ExtResource("4_hv8jl")]
+[node name="JumpPad2" parent="Objects" instance=ExtResource("4_hv8jl")]
 position = Vector2(147, 207)
 jumpForce = 400
 
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Saw" parent="Traps" instance=ExtResource("5_a5qfx")]
+position = Vector2(300, 199)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("6_avqk4")]
+position = Vector2(420, 136)
+
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="touchedPlayer" from="Traps/Saw" to="." method="_on_trap_touched_player"]
+[connection signal="touchedPlayer" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
