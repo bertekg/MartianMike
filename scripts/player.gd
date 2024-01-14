@@ -13,23 +13,25 @@ func _physics_process(delta):
 		if velocity.y > maxFallVelocity:
 			velocity.y = maxFallVelocity
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):# and is_on_floor():
 		velocity.y = -jumpForce
 	
 	var direction = Input.get_axis("move_left", "move_right")
+	if direction != 0:
+		animationSprite.flip_h = direction == -1
+		
 	velocity.x = direction * speed
 	move_and_slide()
+	update_animation(direction)
 
-# Boolean Operatiors
-# NOT -> !, not
-# AND -> &&, and
-# OR -> ||, or
-
-func _ready():
-	var a = not false
-	print(a)	
-	var b = false
-	var resultAnd = a and b
-	print(resultAnd)
-	var resultOr = a or b
-	print(resultOr)
+func update_animation(direction):
+	if is_on_floor():
+		if  direction == 0:
+			animationSprite.play("idle")
+		else :
+			animationSprite.play("run")
+	else:
+		if velocity.y > 0:
+			animationSprite.play("fall")
+		else :
+			animationSprite.play("jump")
