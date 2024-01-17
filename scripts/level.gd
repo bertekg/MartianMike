@@ -6,6 +6,7 @@ extends Node2D
 @onready var exit = $Exit
 @onready var deathZone = $Deathzone
 @onready var levelTime = 5
+@onready var hud = $UILayer/HUD
 
 var player = null
 var timerNode = null
@@ -23,6 +24,7 @@ func _ready():
 	exit.body_entered.connect(_on_exit_body_entered)
 	deathZone.body_entered.connect(_on_deathzone_body_entered)
 	timeLeft = levelTime
+	hud.set_time_label(timeLeft)
 	timerNode = Timer.new()
 	timerNode.name = "Level Timer"
 	timerNode.wait_time = 1
@@ -58,7 +60,7 @@ func _on_exit_body_entered(body):
 func _on_level_timer_timeout():
 	if win == false:
 		timeLeft -= 1
-		print(timeLeft)
 		if timeLeft < 0:
 			resetPlayer()
 			timeLeft = levelTime
+		hud.set_time_label(timeLeft)
