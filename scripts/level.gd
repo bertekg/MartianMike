@@ -41,9 +41,11 @@ func _process(_delta):
 		get_tree().reload_current_scene()
 
 func _on_deathzone_body_entered(_body):
+	AudioPlayer.play_sfx("hurt")
 	resetPlayer()
 
 func _on_trap_touched_player():
+	AudioPlayer.play_sfx("hurt")
 	resetPlayer()
 
 func resetPlayer():
