@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://qd6jesnnh264"]
+
+[ext_resource type="PackedScene" uid="uid://b2was6y6hk6lv" path="res://scenes/background.tscn" id="1_8dm6g"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_d3t78"]
+[ext_resource type="Texture2D" uid="uid://d2wew2673tir8" path="res://assets/textures/bg/Brown.png" id="2_c2q58"]
+[ext_resource type="FontFile" uid="uid://mhjfbxct4nfy" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_511nn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhb0q"]
+font = ExtResource("4_511nn")
+font_size = 36
+font_color = Color(1, 0.0941176, 1, 1)
+outline_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_d3t78")
+
+[node name="Background" parent="." instance=ExtResource("1_8dm6g")]
+background_texture = ExtResource("2_c2q58")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -76.0
+offset_right = 130.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_qhb0q")
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -22.0
+offset_right = 62.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_511nn")
+theme_override_font_sizes/font_size = 24
+text = "START"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 35.0
+offset_right = 54.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_511nn")
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[connection signal="pressed" from="CanvasLayer/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/QuitButton" to="." method="_on_quit_button_pressed"]
