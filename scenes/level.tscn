@@ -15,7 +15,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ymwud")
-next_level = ExtResource("2_o358a")
+nextLevel = ExtResource("2_o358a")
 
 [node name="Background" parent="." instance=ExtResource("2_hc66v")]
 

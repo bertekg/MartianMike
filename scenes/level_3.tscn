@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://tcdtytt2gjqb"]
+[gd_scene load_steps=10 format=3 uid="uid://tcdtytt2gjqb"]
 
 [ext_resource type="PackedScene" uid="uid://b2was6y6hk6lv" path="res://scenes/background.tscn" id="1_0kc7r"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_sf0b3"]
 [ext_resource type="Texture2D" uid="uid://crv2fgbl3wxqk" path="res://assets/textures/bg/Pink.png" id="2_tqayp"]
-[ext_resource type="PackedScene" uid="uid://b68l7g37gx60u" path="res://scenes/level_2.tscn" id="2_xrpw0"]
 [ext_resource type="PackedScene" uid="uid://bsjyfy8ca8n8u" path="res://scenes/tile_map.tscn" id="3_5ln3b"]
 [ext_resource type="PackedScene" uid="uid://c2o5yjh0uefw5" path="res://scenes/start.tscn" id="4_uh7m6"]
 [ext_resource type="PackedScene" uid="uid://uan2gc1a1hgc" path="res://scenes/exit.tscn" id="5_a1dl7"]
@@ -13,7 +12,7 @@
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_sf0b3")
-next_level = ExtResource("2_xrpw0")
+isFinalLevel = true
 
 [node name="Background" parent="." instance=ExtResource("1_0kc7r")]
 background_texture = ExtResource("2_tqayp")
