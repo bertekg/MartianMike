@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var start = $Start
 @onready var exit = $Exit
+@onready var deathZone = $Deathzone
 
 var player = null
 
@@ -15,6 +16,7 @@ func _ready():
 	for trap in traps:
 		trap.touchedPlayer.connect(_on_trap_touched_player)
 	exit.body_entered.connect(_on_exit_body_entered)
+	deathZone.body_entered.connect(_on_deathzone_body_entered)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
