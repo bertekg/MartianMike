@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7h5ho8jg2fud"]
+[gd_scene load_steps=14 format=3 uid="uid://b7h5ho8jg2fud"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ymwud"]
 [ext_resource type="PackedScene" uid="uid://b2was6y6hk6lv" path="res://scenes/background.tscn" id="2_hc66v"]
+[ext_resource type="PackedScene" uid="uid://b68l7g37gx60u" path="res://scenes/level_2.tscn" id="2_o358a"]
 [ext_resource type="PackedScene" uid="uid://2bthkjhl7w0g" path="res://scenes/player.tscn" id="2_q0tjt"]
 [ext_resource type="Texture2D" uid="uid://bgw445pfymkjb" path="res://icon.svg" id="3_26ulb"]
 [ext_resource type="PackedScene" uid="uid://c2o5yjh0uefw5" path="res://scenes/start.tscn" id="4_11fv2"]
@@ -19,6 +20,7 @@ size = Vector2(5089, 90.5)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ymwud")
+next_level = ExtResource("2_o358a")
 
 [node name="Background" parent="." instance=ExtResource("2_hc66v")]
 
