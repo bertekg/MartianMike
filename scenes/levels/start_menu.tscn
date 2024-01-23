@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://qd6jesnnh264"]
+[gd_scene load_steps=7 format=3 uid="uid://qd6jesnnh264"]
 
-[ext_resource type="PackedScene" uid="uid://b2was6y6hk6lv" path="res://scenes/background.tscn" id="1_8dm6g"]
-[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_d3t78"]
-[ext_resource type="Texture2D" uid="uid://d2wew2673tir8" path="res://assets/textures/bg/Brown.png" id="2_c2q58"]
-[ext_resource type="FontFile" uid="uid://mhjfbxct4nfy" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_511nn"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_yhk0j"]
+[ext_resource type="PackedScene" uid="uid://b7h5ho8jg2fud" path="res://scenes/levels/level_1_basic_movement.tscn" id="2_ka8uj"]
+[ext_resource type="PackedScene" uid="uid://b2was6y6hk6lv" path="res://scenes/background.tscn" id="3_ejtuj"]
+[ext_resource type="Texture2D" uid="uid://d2wew2673tir8" path="res://assets/textures/bg/Brown.png" id="4_o5sc6"]
+[ext_resource type="FontFile" uid="uid://mhjfbxct4nfy" path="res://assets/fonts/Kenney Pixel Square.ttf" id="5_5yhwy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qhb0q"]
-font = ExtResource("4_511nn")
+font = ExtResource("5_5yhwy")
 font_size = 36
 font_color = Color(1, 0.0941176, 1, 1)
 outline_size = 6
@@ -14,10 +15,11 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(5, 5)
 
 [node name="StartMenu" type="Node2D"]
-script = ExtResource("1_d3t78")
+script = ExtResource("1_yhk0j")
+firstLevel = ExtResource("2_ka8uj")
 
-[node name="Background" parent="." instance=ExtResource("1_8dm6g")]
-background_texture = ExtResource("2_c2q58")
+[node name="Background" parent="." instance=ExtResource("3_ejtuj")]
+background_texture = ExtResource("4_o5sc6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -58,7 +60,7 @@ offset_right = 62.0
 offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_511nn")
+theme_override_fonts/font = ExtResource("5_5yhwy")
 theme_override_font_sizes/font_size = 24
 text = "START"
 
@@ -75,7 +77,7 @@ offset_right = 54.0
 offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_511nn")
+theme_override_fonts/font = ExtResource("5_5yhwy")
 theme_override_font_sizes/font_size = 20
 text = "QUIT"
 
